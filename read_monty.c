@@ -24,9 +24,11 @@ int read_montyfile(char *filename)
 	while (line_size != -1)
 	{
 		line_count++;
-		line_split = _split(line_buf, "\t ");
-		printf("val 0: %s\n", line_split[0])
-		printf("val 1: %s\n", line_split[1])
+		line_split = _split(line_buf, "\n\t ");
+		printf("line #%d\n", line_count);
+		printf("\tCommand: %s\n", line_split[0]);
+		if (line_split[1] != NULL)
+			printf("\tArgument: %s\n", line_split[1]);
 		line_size = getline(&line_buf, &line_buf_size, fp);
 	}
 	free(line_buf);

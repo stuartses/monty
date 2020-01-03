@@ -1,8 +1,13 @@
 #include "monty.h"
 /**
+ * _split - Function that split and add the content of array
+ * into a list of arguments.
  *
+ * @buffer: Pointer type char
+ * @separator: string of char separator
  *
- *
+ * Description: Splits the buffer with the separator and creates an array
+ * Return: Array with the list of arguments or NULL if failed
  */
 char **_split(char *buffer, char *separator)
 {
