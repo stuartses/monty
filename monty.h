@@ -34,7 +34,14 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+extern int global_n;
+
 int read_montyfile(char *filename);
 char **_split(char *buffer, char *separator);
-
+int _array_len(char **_array);
+void op_pall(stack_t **stack, unsigned int line_number);
+void op_push(stack_t **stack, unsigned int line_number);
+void (*get_op_func(char *s))(stack_t **, unsigned int);
+stack_t *add_dnodeint(stack_t **head, const int n);
+size_t print_dlistint(const stack_t *h);
 #endif /* HOLBERTON_H */

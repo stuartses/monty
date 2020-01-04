@@ -24,6 +24,7 @@ char **_split(char *buffer, char *separator)
 		exit(EXIT_FAILURE);
 	}
 
+
 	token = strtok(buffer, separator);
 
 	if (token == NULL)
@@ -42,4 +43,17 @@ char **_split(char *buffer, char *separator)
 	tokens[len] = NULL;
 
 	return (tokens);
+}
+
+/**
+ *
+ *
+ */
+int _array_len(char **_array)
+{
+	int len = 0;
+	while (_array[len] != NULL)
+		len++;
+
+	return (len);
 }
