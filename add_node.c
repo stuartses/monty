@@ -28,6 +28,5 @@ stack_t *add_dnodeint(stack_t **head, const int n)
 		new->next = temp;
 		*head = new;
 	}
-
 	return (*head);
 }

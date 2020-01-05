@@ -69,3 +69,23 @@ int _array_len(char **_array)
 
 	return (len);
 }
+
+/**
+ * _free_array - free array
+ * @_array: input array
+ *
+ * Description: free all elements in array
+ * Return: void
+ */
+void _free_array(char **_array)
+{
+	int j = 0;
+
+	while (_array[j + 1] != NULL)
+	{
+		free(_array[j]);
+		_array[j] = NULL;
+		j++;
+	}
+	free(_array);
+}

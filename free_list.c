@@ -17,6 +17,7 @@ void free_dlistint(stack_t **head)
 	while (temp != NULL)
 	{
 		temp_next = temp->next;
+
 		free(temp);
 		temp = temp_next;
 	}

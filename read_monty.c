@@ -58,9 +58,10 @@ unsigned int _read_fpline(FILE *fp)
 				global_n = "none";
 
 			exec_line(line_split, line_buf, fp, line_count, &stack);
-			free(line_split);
-		}
 
+		}
+		_free_array(line_split);
+		line_split = NULL;
 		line_size = getline(&line_buf, &line_buf_size, fp);
 	}
 	free(line_buf);
