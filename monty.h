@@ -44,7 +44,6 @@ unsigned int _read_fpline(FILE *fp);
 int read_montyfile(char *filename);
 char **_split(char *buffer, char *separator, FILE *fp);
 int _array_len(char **_array);
-void _free_array(char **_array);
 void op_pall(stack_t **stack, unsigned int line_number);
 void op_push(stack_t **stack, unsigned int line_number);
 void (*get_op_func(char *s))(stack_t **, unsigned int);
