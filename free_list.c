@@ -12,6 +12,7 @@ void free_dlistint(stack_t **head)
 
 	if (*head == NULL)
 		return;
+
 	temp = *head;
 	while (temp != NULL)
 	{

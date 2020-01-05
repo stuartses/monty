@@ -15,8 +15,6 @@ size_t print_dlistint(const stack_t *h)
 	node = h;
 	i = 0;
 
-	if (node == NULL)
-		printf("is null\n");
 	while (node != NULL)
 	{
 		printf("%d\n", node->n);

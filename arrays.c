@@ -38,7 +38,6 @@ char **_split(char *buffer, char *separator, FILE *fp)
 
 	if (token == NULL)
 	{
-		/* free(buff_copy); */
 		free(tokens);
 		return (NULL);
 	}
@@ -50,6 +49,7 @@ char **_split(char *buffer, char *separator, FILE *fp)
 		len++;
 	}
 	tokens[len] = NULL;
+
 	return (tokens);
 }
 

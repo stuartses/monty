@@ -40,7 +40,7 @@ extern char *global_n;
 int _isnumber(char *str);
 void exec_line(char **line_split, char *line_buf, FILE *fp,
 	       unsigned int line_count, stack_t **stack);
-unsigned int _read_fpline(FILE *fp, stack_t *stack);
+unsigned int _read_fpline(FILE *fp);
 int read_montyfile(char *filename);
 char **_split(char *buffer, char *separator, FILE *fp);
 int _array_len(char **_array);

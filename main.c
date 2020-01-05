@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * int - initializes monty interpreter
+ * main - initializes monty interpreter
  * @ac: input number of arguments
  * @av: input arguments
  *

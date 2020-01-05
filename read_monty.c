@@ -12,7 +12,6 @@ int read_montyfile(char *filename)
 {
 	FILE *fp;
 	unsigned int line_count = 0;
-	stack_t *stack = NULL;
 
 	if (filename == NULL)
 		return (-1);
@@ -21,10 +20,9 @@ int read_montyfile(char *filename)
 	if (fp == NULL)
 		return (-1);
 
-	line_count = _read_fpline(fp, stack);
+	line_count = _read_fpline(fp);
 
 	fclose(fp);
-	free_dlistint(&stack);
 
 	return (line_count);
 }
@@ -32,13 +30,13 @@ int read_montyfile(char *filename)
 /**
  * _read_fpline - Process all lines form file
  * @fp: input file
- * @stack:dubly linked list
  *
  * Description: Read each line from the input file and splits
  * Return: number of lines
  */
-unsigned int _read_fpline(FILE *fp, stack_t *stack)
+unsigned int _read_fpline(FILE *fp)
 {
+	stack_t *stack = NULL;
 	char *line_buf = NULL;
 	size_t line_buf_size = 0;
 	unsigned int line_count = 0;
@@ -62,9 +60,11 @@ unsigned int _read_fpline(FILE *fp, stack_t *stack)
 			exec_line(line_split, line_buf, fp, line_count, &stack);
 			free(line_split);
 		}
+
 		line_size = getline(&line_buf, &line_buf_size, fp);
 	}
 	free(line_buf);
+	free_dlistint(&stack);
 
 	return (line_count);
 }
