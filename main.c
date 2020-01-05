@@ -7,7 +7,7 @@
  * Description: initializes monty interpreter and get arguments from stdin
  * Return: 0
  */
-int main (int ac, char **av)
+int main(int ac, char **av)
 {
 	int status_read;
 
