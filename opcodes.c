@@ -31,3 +31,18 @@ void op_push(stack_t **stack, unsigned int line_number)
 
 	add_dnodeint(*(&stack), n_value);
 }
+
+/**
+ * op_pint - Prints first in list
+ * @stack: doubly linked list
+ * @line_number: current line number
+ *
+ * Description: Print the data of first element of a doubly linked list
+ * Return: void
+ */
+void op_pint(stack_t **stack, unsigned int line_number)
+{
+        (void)line_number;
+
+        first_dlistint(*stack);
+}

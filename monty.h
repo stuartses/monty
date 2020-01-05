@@ -35,7 +35,7 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern char *global_n;
+char *global_n;
 
 int _isnumber(char *str);
 void exec_line(char **line_split, char *line_buf, FILE *fp,
@@ -46,8 +46,10 @@ char **_split(char *buffer, char *separator, FILE *fp);
 int _array_len(char **_array);
 void op_pall(stack_t **stack, unsigned int line_number);
 void op_push(stack_t **stack, unsigned int line_number);
+void op_pint(stack_t **stack, unsigned int line_number);
 void (*get_op_func(char *s))(stack_t **, unsigned int);
 stack_t *add_dnodeint(stack_t **head, const int n);
 size_t print_dlistint(const stack_t *h);
+void first_dlistint(const stack_t *h);
 void free_dlistint(stack_t **head);
 #endif /* HOLBERTON_H */

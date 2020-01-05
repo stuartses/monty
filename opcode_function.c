@@ -13,6 +13,7 @@ void (*get_op_func(char *s))(stack_t **, unsigned int)
 	instruction_t ops[] = {
 		{"pall", op_pall},
 		{"push", op_push},
+		{"pint", op_pint},
 		{NULL, NULL}
 	};
 
