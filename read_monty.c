@@ -110,13 +110,13 @@ void exec_line(char **line_split, char *line_buf, FILE *fp,
 	}
 
 	if (stack == NULL && strcmp(line_split[0], "pint") == 0)
-        {
-                dprintf(2, "L%d: can't pint, stack empty\n", line_count);
+	{
+		dprintf(2, "L%d: can't pint, stack empty\n", line_count);
 
-                free(line_split);
-                free(line_buf);
-                fclose(fp);
-                free_dlistint(stack);
+		free(line_split);
+		free(line_buf);
+		fclose(fp);
+		free_dlistint(stack);
 	}
 	func(stack, line_count);
 }
