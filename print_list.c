@@ -35,7 +35,7 @@ void first_dlistint(const stack_t *h)
 {
 	const stack_t *node;
 
-        node = h;
+	node = h;
 	if (node != NULL)
 		printf("%d\n", node->n);
 }

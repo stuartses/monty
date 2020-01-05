@@ -109,7 +109,11 @@ void exec_line(char **line_split, char *line_buf, FILE *fp,
 		exit(EXIT_FAILURE);
 	}
 
-	if (stack == NULL && strcmp(line_split[0], "pint") == 0)
+	if (stack == NULL && (
+		    strcmp(line_split[0], "pint") == 0 ||
+		    strcmp(line_split[0], "pop") == 0
+		    )
+		)
 	{
 		dprintf(2, "L%d: can't pint, stack empty\n", line_count);
 
