@@ -61,3 +61,18 @@ void op_pop(stack_t **stack, unsigned int line_number)
 
 	delete_dnodeint_at_index(stack, 0);
 }
+
+/**
+ * op_swap - Swap two elements of a list
+ * @stack: do ubly linked list
+ * @line_number: current line number
+ *
+ * Description: Swap the firsy two elements of a list
+ * Return: void
+ */
+void op_swap(stack_t **stack, unsigned int line_number)
+{
+	(void)line_number;
+
+	swap_dnodeint(stack);
+}

@@ -84,6 +84,7 @@ void exec_line(char **line_split, char *line_buf, FILE *fp,
 	       unsigned int line_count, stack_t **stack)
 {
 	void (*func)(stack_t **, unsigned int);
+	size_t stack_size;
 
 	func = *get_op_func(line_split[0]);
 	if (func == NULL)
@@ -122,5 +123,17 @@ void exec_line(char **line_split, char *line_buf, FILE *fp,
 		fclose(fp);
 		free_dlistint(stack);
 	}
+
+	stack_size = dlistint_len(*stack);
+	if (stack_size < 2 && strcmp(line_split[0], "swap") == 0)
+	{
+		dprintf(2, "L%d: can't swap, stack too short\n", line_count);
+
+		free(line_split);
+		free(line_buf);
+		fclose(fp);
+		free_dlistint(stack);
+	}
+
 	func(stack, line_count);
 }
