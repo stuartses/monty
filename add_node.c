@@ -30,3 +30,20 @@ stack_t *add_dnodeint(stack_t **head, const int n)
 	}
 	return (*head);
 }
+
+/**
+ * sum_dnodeint - sum two elements of a list
+ * @stack: input linked list
+ *
+ * Description: sum the two first elements of a doubly linked list
+ * Return: void
+ */
+void sum_dnodeint(stack_t **stack)
+{
+	int sum = 0;
+
+	sum = (*stack)->n + (*stack)->next->n;
+	swap_dnodeint(stack);
+	delete_dnodeint_at_index(stack, 0);
+	(*stack)->n = sum;
+}

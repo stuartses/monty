@@ -135,5 +135,15 @@ void exec_line(char **line_split, char *line_buf, FILE *fp,
 		free_dlistint(stack);
 	}
 
+	if (stack_size < 2 && strcmp(line_split[0], "add") == 0)
+	{
+		dprintf(2, "L%d: can't add, stack too shortt\n", line_count);
+
+		free(line_split);
+		free(line_buf);
+		fclose(fp);
+		free_dlistint(stack);
+	}
+
 	func(stack, line_count);
 }
