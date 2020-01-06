@@ -14,3 +14,18 @@ void op_add(stack_t **stack, unsigned int line_number)
 
 	sum_dnodeint(stack);
 }
+
+/**
+ * op_nop - Doesn't do Anything
+ * @stack: doubly linked list
+ * @line_number: current line number
+ *
+ * Description: Doesn't do anything
+ * Return: void
+ */
+void op_nop(stack_t **stack, unsigned int line_number)
+{
+	(void)stack;
+	(void)line_number;
+
+}
