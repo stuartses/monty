@@ -20,6 +20,7 @@ void op_add(stack_t **stack, unsigned int line_number)
 		free(mtdata.line_buf);
 		fclose(mtdata.fp);
 		free_dlistint(*stack);
+		exit(EXIT_FAILURE);
 	}
 
 	sum_dnodeint(stack);
