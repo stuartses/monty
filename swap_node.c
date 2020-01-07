@@ -22,7 +22,9 @@ void swap_dnodeint(stack_t **head)
 	a->prev = NULL;
 	b->prev = a;
 	b->next = d;
-	d->prev = b;
+
+	if (d != NULL)
+		d->prev = b;
 
 	*head = a;
 }
