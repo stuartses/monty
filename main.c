@@ -1,4 +1,8 @@
 #include "monty.h"
+
+/* initializes global struct */
+montyglob_t mtdata = {NULL, NULL, NULL, NULL, NULL};
+
 /**
  * main - initializes monty interpreter
  * @ac: input number of arguments

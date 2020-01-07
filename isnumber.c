@@ -11,8 +11,17 @@ int _isnumber(char *str)
 {
 	int j = 0;
 
+	if (str == NULL)
+		return (0);
+
 	while (str[j] != '\0')
 	{
+		if (j == 0 && str[j] == '-')
+		{
+			j++;
+			continue;
+		}
+
 		if (!isdigit(str[j]))
 			return (0);
 		j++;

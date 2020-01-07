@@ -24,12 +24,24 @@ void op_pall(stack_t **stack, unsigned int line_number)
  */
 void op_push(stack_t **stack, unsigned int line_number)
 {
+	int val_num;
 	int n_value;
-	(void)line_number;
 
-	n_value = atoi(global_n);
+	/* Validates if argument is a number or NOT */
+	val_num = _isnumber(mtdata.n);
 
-	add_dnodeint(*(&stack), n_value);
+	/* if argument is not number or NULL (Nothing) */
+	if (val_num == 0)
+	{
+		dprintf(2, "L%d: usage: push integer\n", line_number);
+		free(mtdata.line_buf);
+		fclose(mtdata.fp);
+		free_dlistint(*stack);
+		exit(EXIT_FAILURE);
+	}
+
+	n_value = atoi(mtdata.n);
+	add_dnodeint(&(*stack), n_value);
 }
 
 /**

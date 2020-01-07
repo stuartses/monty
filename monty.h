@@ -35,15 +35,30 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-char *global_n;
+/**
+ * montyglob_s - global variables for monty program
+ * @n: value from readed line
+ * @fp: filename
+ * @buffer: readed line
+ * @stack: doubly linked list
+ *
+ * Description: stores the variables for be used in Monty program
+ */
+typedef struct montyglob_s
+{
+	char *n;
+	FILE *fp;
+	char *line_buf;
+	char *opcode;
+	stack_t *stack;
+} montyglob_t;
+
+extern montyglob_t mtdata;
 
 int _isnumber(char *str);
-void exec_line(char **line_split, char *line_buf, FILE *fp,
-	       unsigned int line_count, stack_t **stack);
-unsigned int _read_fpline(FILE *fp);
+void exec_line(unsigned int line_count);
+unsigned int _read_fpline(void);
 int read_montyfile(char *filename);
-char **_split(char *buffer, char *separator, FILE *fp);
-int _array_len(char **_array);
 void op_pall(stack_t **stack, unsigned int line_number);
 void op_push(stack_t **stack, unsigned int line_number);
 void op_pint(stack_t **stack, unsigned int line_number);
@@ -59,5 +74,5 @@ void first_dlistint(const stack_t *h);
 void swap_dnodeint(stack_t **head);
 void sum_dnodeint(stack_t **stack);
 size_t dlistint_len(stack_t *h);
-void free_dlistint(stack_t **head);
+void free_dlistint(stack_t *head);
 #endif /* HOLBERTON_H */

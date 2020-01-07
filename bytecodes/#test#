@@ -1,0 +1,5 @@
+push -7
+push 3
+push 900
+push -9
+pall

@@ -6,14 +6,14 @@
  * Description: free memory of a doubly linked list
  * Return: void
  */
-void free_dlistint(stack_t **head)
+void free_dlistint(stack_t *head)
 {
 	stack_t *temp, *temp_next;
 
-	if (*head == NULL)
+	if (head == NULL)
 		return;
 
-	temp = *head;
+	temp = head;
 	while (temp != NULL)
 	{
 		temp_next = temp->next;
