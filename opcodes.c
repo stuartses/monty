@@ -54,7 +54,14 @@ void op_push(stack_t **stack, unsigned int line_number)
  */
 void op_pint(stack_t **stack, unsigned int line_number)
 {
-	(void)line_number;
+	if (mtdata.stack == NULL)
+	{
+		dprintf(2, "L%d: can't pint, stack empty\n", line_number);
+
+		free(mtdata.line_buf);
+		fclose(mtdata.fp);
+		exit(EXIT_FAILURE);
+	}
 
 	first_dlistint(*stack);
 }
@@ -69,7 +76,14 @@ void op_pint(stack_t **stack, unsigned int line_number)
  */
 void op_pop(stack_t **stack, unsigned int line_number)
 {
-	(void)line_number;
+	if (mtdata.stack == NULL)
+	{
+		dprintf(2, "L%d: can't pop an empty stack\n", line_number);
+
+		free(mtdata.line_buf);
+		fclose(mtdata.fp);
+		exit(EXIT_FAILURE);
+	}
 
 	delete_dnodeint_at_index(stack, 0);
 }
@@ -84,7 +98,17 @@ void op_pop(stack_t **stack, unsigned int line_number)
  */
 void op_swap(stack_t **stack, unsigned int line_number)
 {
-	(void)line_number;
+	size_t stack_size;
+
+	stack_size = dlistint_len(*stack);
+	if (stack_size < 2)
+	{
+		dprintf(2, "L%d: can't swap, stack too short\n", line_number);
+
+		free(mtdata.line_buf);
+		fclose(mtdata.fp);
+		free_dlistint(*stack);
+	}
 
 	swap_dnodeint(stack);
 }

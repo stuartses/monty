@@ -81,42 +81,5 @@ void exec_line(unsigned int line_count)
 		exit(EXIT_FAILURE);
 	}
 
-	/*
-
-	if (stack == NULL && (
-		    strcmp(line_split[0], "pint") == 0 ||
-		    strcmp(line_split[0], "pop") == 0
-		    )
-		)
-	{
-		dprintf(2, "L%d: can't pint, stack empty\n", line_count);
-
-		free(line_split);
-		free(line_buf);
-		fclose(fp);
-		free_dlistint(stack);
-	}
-
-	stack_size = dlistint_len(*stack);
-	if (stack_size < 2 && strcmp(line_split[0], "swap") == 0)
-	{
-		dprintf(2, "L%d: can't swap, stack too short\n", line_count);
-
-		free(line_split);
-		free(line_buf);
-		fclose(fp);
-		free_dlistint(stack);
-	}
-
-	if (stack_size < 2 && strcmp(line_split[0], "add") == 0)
-	{
-		dprintf(2, "L%d: can't add, stack too shortt\n", line_count);
-
-		free(line_split);
-		free(line_buf);
-		fclose(fp);
-		free_dlistint(stack);
-	}
-	*/
 	func(&mtdata.stack, line_count);
 }

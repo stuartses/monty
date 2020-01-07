@@ -10,7 +10,17 @@
  */
 void op_add(stack_t **stack, unsigned int line_number)
 {
-	(void)line_number;
+	size_t stack_size;
+
+	stack_size = dlistint_len(*stack);
+	if (stack_size < 2)
+	{
+		dprintf(2, "L%d: can't add, stack too short\n", line_number);
+
+		free(mtdata.line_buf);
+		fclose(mtdata.fp);
+		free_dlistint(*stack);
+	}
 
 	sum_dnodeint(stack);
 }
@@ -27,5 +37,4 @@ void op_nop(stack_t **stack, unsigned int line_number)
 {
 	(void)stack;
 	(void)line_number;
-
 }
