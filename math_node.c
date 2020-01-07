@@ -50,3 +50,20 @@ void div_dnodeint(stack_t **stack)
 	delete_dnodeint_at_index(stack, 0);
 	(*stack)->n = div;
 }
+
+/**
+ * mul_dnodeint - multiplies two elements of a list
+ * @stack: input linked list
+ *
+ * Description: multiplies two first elements of a doubly linked list
+ * Return: void
+ */
+void mul_dnodeint(stack_t **stack)
+{
+	int mul = 0;
+
+	mul = (*stack)->next->n * (*stack)->n;
+	swap_dnodeint(stack);
+	delete_dnodeint_at_index(stack, 0);
+	(*stack)->n = mul;
+}

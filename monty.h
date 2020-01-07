@@ -68,6 +68,7 @@ void op_add(stack_t **stack, unsigned int line_number);
 void op_nop(stack_t **stack, unsigned int line_number);
 void op_sub(stack_t **stack, unsigned int line_number);
 void op_div(stack_t **stack, unsigned int line_number);
+void op_mul(stack_t **stack, unsigned int line_number);
 void (*get_op_func(char *s))(stack_t **, unsigned int);
 stack_t *add_dnodeint(stack_t **head, const int n);
 size_t print_dlistint(const stack_t *h);
@@ -77,6 +78,7 @@ void swap_dnodeint(stack_t **head);
 void sum_dnodeint(stack_t **stack);
 void sub_dnodeint(stack_t **stack);
 void div_dnodeint(stack_t **stack);
+void mul_dnodeint(stack_t **stack);
 size_t dlistint_len(stack_t *h);
 void free_dlistint(stack_t *head);
 #endif /* HOLBERTON_H */
