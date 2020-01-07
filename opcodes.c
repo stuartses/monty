@@ -108,6 +108,7 @@ void op_swap(stack_t **stack, unsigned int line_number)
 		free(mtdata.line_buf);
 		fclose(mtdata.fp);
 		free_dlistint(*stack);
+		exit(EXIT_FAILURE);
 	}
 
 	swap_dnodeint(stack);
