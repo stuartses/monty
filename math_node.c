@@ -67,3 +67,20 @@ void mul_dnodeint(stack_t **stack)
 	delete_dnodeint_at_index(stack, 0);
 	(*stack)->n = mul;
 }
+
+/**
+ * mod_dnodeint - modulus two elements of a list
+ * @stack: input linked list
+ *
+ * Description: modulus the two first elements of a doubly linked list
+ * Return: void
+ */
+void mod_dnodeint(stack_t **stack)
+{
+	int mod = 0;
+
+	mod = (*stack)->next->n % (*stack)->n;
+	swap_dnodeint(stack);
+	delete_dnodeint_at_index(stack, 0);
+	(*stack)->n = mod;
+}
